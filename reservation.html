@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
 <body>
@@ -20,25 +21,43 @@
   <form>
     <div class="form-group">
       <label for="exampleInputEmail1">Name</label>
-      <input type="email" class="form-control" id="nameInput" aria-describedby="emailHelp">
+      <input type="text" class="form-control" id="nameInput" aria-describedby="emailHelp">
       <small id="emailHelp" class="form-text text-muted"></small>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Phone Number</label>
-      <input type="password" class="form-control" id="phoneInput">
+      <input type="text" class="form-control" id="phoneInput">
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Email</label>
-      <input type="password" class="form-control" id="emailInput">
+      <input type="text" class="form-control" id="emailInput">
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Unique ID</label>
-      <input type="password" class="form-control" id="uniqueInput">
+      <label for="exampleInputPassword1">Party Size</label>
+      <input type="text" class="form-control" id="partyInput">
     </div>
     <div class="form-check">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" id="reserve-button" class="btn btn-primary">Submit</button>
   </form>
+
+  <script type="text/javascript">
+  $('#reserve-button').on("click", function(event) {
+    event.preventDefault();
+    const newReservation = {
+      name: $('#nameInput').val().trim(),
+      phoneNumber: $('#phoneInput').val().trim(),
+      email: $('#emailInput').val().trim(),
+      partySize:$('#partyInput').val().trim()
+    };
+
+    $.post("/api/reservations", newReservation)
+    .then(function(data) {
+      console.log("reservation.html", data);
+      alert("Creating reservation!")
+    });
+  });
+  </script>
 </body>
 
 </html>
