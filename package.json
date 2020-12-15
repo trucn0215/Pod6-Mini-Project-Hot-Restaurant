@@ -1,0 +1,24 @@
+{
+  "name": "Pod6-Mini-Project-Hot-Restaurant",
+  "version": "1.0.0",
+  "description": "Mini Project to create an App that Customer use to reserve table in a Restaurant",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trucn0215/Pod6-Mini-Project-Hot-Restaurant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trucn0215/Pod6-Mini-Project-Hot-Restaurant/issues"
+  },
+  "homepage": "https://github.com/trucn0215/Pod6-Mini-Project-Hot-Restaurant#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  }
+}
